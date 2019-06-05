@@ -34,7 +34,7 @@ class RepositoryDetails extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(width: 20.0),
+          SizedBox(width: 15.0),
           Container(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,

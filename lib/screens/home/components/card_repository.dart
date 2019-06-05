@@ -4,9 +4,9 @@ import 'package:github_repositories/screens/home/components/details_repository.d
 import 'package:github_repositories/screens/home/components/title_repository.dart';
 
 class RepositoryCard extends StatelessWidget {
-  RepositoryCard({@required this.title, this.description, this.stars, this.forks});
+  RepositoryCard({@required this.name, this.description, this.stars, this.forks});
 
-  final String title;
+  final String name;
   final String description;
   final String stars;
   final String forks;
@@ -21,7 +21,7 @@ class RepositoryCard extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              RepositoryTitle(title: title),
+              RepositoryName(name: name),
               RepositoryDescription(
                 description: description,
               ),

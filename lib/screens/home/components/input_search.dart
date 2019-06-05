@@ -9,6 +9,7 @@ class InputSearchReposity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.only(bottom: 10),
       child: Row(
         children: <Widget>[
           Flexible(
