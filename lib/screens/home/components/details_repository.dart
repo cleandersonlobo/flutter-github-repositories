@@ -24,7 +24,7 @@ class RepositoryDetails extends StatelessWidget {
                 SizedBox(width: 5.0),
                 Container(
                   child: Text(
-                    stars,
+                    stars.toString(),
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       height: 1.2,
@@ -47,7 +47,7 @@ class RepositoryDetails extends StatelessWidget {
                 SizedBox(width: 5.0),
                 Container(
                   child: Text(
-                    forks,
+                    forks.toString(),
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       height: 1.2,
