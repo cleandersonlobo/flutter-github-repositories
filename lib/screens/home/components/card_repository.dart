@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:github_repositories/screens/home/components/description_repository.dart';
 import 'package:github_repositories/screens/home/components/details_repository.dart';
 import 'package:github_repositories/screens/home/components/title_repository.dart';
+import 'package:github_repositories/models/repository.dart';
 
 class RepositoryCard extends StatelessWidget {
-  RepositoryCard({@required this.name, this.description, this.stars, this.forks});
+  RepositoryCard({@required this.repository});
 
-  final String name;
-  final String description;
-  final String stars;
-  final String forks;
+  final Repository repository;
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +19,11 @@ class RepositoryCard extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              RepositoryName(name: name),
+              RepositoryName(name: repository.name),
               RepositoryDescription(
-                description: description,
+                description: repository.description,
               ),
-              RepositoryDetails(stars: stars, forks: forks)
+              RepositoryDetails(stars: repository.stars, forks: repository.forks)
             ],
           ),
         ));
