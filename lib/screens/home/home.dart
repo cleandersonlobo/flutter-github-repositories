@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:github_repositories/models/repository.dart';
-import 'package:github_repositories/screens/home/components/card_repository.dart';
-import 'package:github_repositories/screens/home/components/input_search.dart';
-import 'package:github_repositories/screens/home/components/title_header.dart';
+import 'package:github_repositories/screens/home/widgets/card_repository.dart';
+import 'package:github_repositories/screens/home/widgets/input_search.dart';
+import 'package:github_repositories/screens/home/widgets/title_header.dart';
 import 'package:github_repositories/services/api.dart';
 
 class Home extends StatefulWidget {
@@ -16,6 +16,7 @@ class Home extends StatefulWidget {
 
 class _Home extends State<Home> {
   List<Repository> repositories;
+  final TextEditingController inputController = TextEditingController();
   @override
   void initState() {
     super.initState();
@@ -55,6 +56,7 @@ class _Home extends State<Home> {
           Repository resp = Repository.fromJson(model);
           if (resp != null) repositories.add(resp);
           isLoading = false;
+          inputController.text = "";
         });
       } else {
         // If that response was not OK, throw an error.
@@ -81,14 +83,18 @@ class _Home extends State<Home> {
           TitleHeader(
             description: "Repositories",
           ),
-          InputSearchReposity(onPress: _getRepository),
+          InputSearchReposity(
+              onPress: _getRepository, controller: inputController),
           Expanded(
-            child: ListView.builder(
-              itemCount: repositories == null ? 0 : repositories.length,
-              padding: const EdgeInsets.all(0),
-              itemBuilder: (context, int index) {
-                return RepositoryCard(repository: repositories[index]);
-              },
+            child: SafeArea(
+              top: false,
+              child: ListView.builder(
+                itemCount: repositories == null ? 0 : repositories.length,
+                padding: const EdgeInsets.all(0),
+                itemBuilder: (context, int index) {
+                  return RepositoryCard(repository: repositories[index]);
+                },
+              ),
             ),
           ),
         ],

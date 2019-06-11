@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:github_repositories/screens/home/components/description_repository.dart';
-import 'package:github_repositories/screens/home/components/details_repository.dart';
-import 'package:github_repositories/screens/home/components/title_repository.dart';
+import 'package:github_repositories/screens/home/widgets/description_repository.dart';
+import 'package:github_repositories/screens/home/widgets/details_repository.dart';
+import 'package:github_repositories/screens/home/widgets/title_repository.dart';
 import 'package:github_repositories/models/repository.dart';
 
 class RepositoryCard extends StatelessWidget {

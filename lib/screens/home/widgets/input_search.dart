@@ -2,18 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:github_repositories/utils/hex_color.dart';
 
 class InputSearchReposity extends StatelessWidget {
-  InputSearchReposity({ @required this.onPress });
+  InputSearchReposity({ @required this.onPress, @required this.controller });
 
   final Function onPress;
-  final TextEditingController _controller = TextEditingController();
+  final TextEditingController controller;
   
   _onPress() {
-    onPress(_controller.text);
+    onPress(controller.text);
   }
 
   _onSubmit(String text) {
     onPress(text);
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +27,12 @@ class InputSearchReposity extends StatelessWidget {
             flex: 4,
             child: TextField(
               style: TextStyle(backgroundColor: Colors.white),
-              controller: _controller,
+              controller: controller,
               autocorrect: false,
               onSubmitted: _onSubmit,
               textCapitalization: TextCapitalization.none,
               decoration: const InputDecoration(
-                  hintText: 'Search Repository...',
+                  hintText: 'Search ex.: flutter/flutter',
                   fillColor: Colors.white,
                   filled: true,
                   hintStyle: TextStyle(color: Colors.grey)),
