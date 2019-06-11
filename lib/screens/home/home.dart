@@ -47,6 +47,9 @@ class _Home extends State<Home> {
 
   _getRepository(String name) async {
     try {
+      setState(() {
+          isLoading = true;
+      });
       var response = await getRepository(name);
       if (response.statusCode == 200) {
         // If server returns an OK response, parse the JSON
@@ -84,7 +87,7 @@ class _Home extends State<Home> {
             description: "Repositories",
           ),
           InputSearchReposity(
-              onPress: _getRepository, controller: inputController),
+              onPress: _getRepository, controller: inputController, isLoading: isLoading),
           Expanded(
             child: SafeArea(
               top: false,

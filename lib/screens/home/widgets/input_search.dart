@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:github_repositories/utils/hex_color.dart';
+import 'package:github_repositories/screens/home/widgets/progress_button.dart';
 
 class InputSearchReposity extends StatelessWidget {
-  InputSearchReposity({ @required this.onPress, @required this.controller });
+  InputSearchReposity({ @required this.onPress, @required this.controller, this.isLoading });
 
   final Function onPress;
   final TextEditingController controller;
+  final bool isLoading;
   
   _onPress() {
     onPress(controller.text);
@@ -41,16 +42,8 @@ class InputSearchReposity extends StatelessWidget {
           SizedBox(width: 10.0),
           Flexible(
             flex: 1,
-            child: RaisedButton(
-              child: Icon(
-                Icons.add,
-                color: Colors.white,
-                size: 30.0,
-              ),
-              highlightElevation: 2,
-              color: HexColor("#2D9FFF"),
-              padding: const EdgeInsets.all(8.0),
-              textColor: Colors.white,
+            child: ProgressButton(
+              loading: isLoading,
               onPressed: _onPress,
             ),
           ),
