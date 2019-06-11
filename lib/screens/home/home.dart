@@ -54,7 +54,6 @@ class _Home extends State<Home> {
       if (response.statusCode == 200) {
         // If server returns an OK response, parse the JSON
         Map model = json.decode(response.body);
-        print(response.body);
         setState(() {
           Repository resp = Repository.fromJson(model);
           if (resp != null) repositories.add(resp);
